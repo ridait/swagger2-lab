@@ -1,10 +1,18 @@
 package com.ridait.swagger2.models;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(description = "Details about Friend model")
 public class Friend {
 
+    @ApiModelProperty(notes = "the id property")
     private String id;
+    @ApiModelProperty(notes = "the full name property")
     private String fullName;
+    @ApiModelProperty(notes = "the phone number")
     private String phoneNumber;
+    @ApiModelProperty(notes = "the email")
     private String email;
 
     public Friend(){
