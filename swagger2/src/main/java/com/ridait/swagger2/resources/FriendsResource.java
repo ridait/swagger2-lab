@@ -3,6 +3,7 @@ package com.ridait.swagger2.resources;
 import com.ridait.swagger2.models.Friend;
 import com.ridait.swagger2.services.FriendService;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,7 +23,7 @@ public class FriendsResource {
 
 
     @GetMapping
-    public List<Friend> getAllFrinds(){
+    public List<Friend> getAllFriends(){
         return friendService.getFriends();
     }
 
@@ -31,7 +32,8 @@ public class FriendsResource {
             notes = "Provide id to get a friend from friends list",
             response = Friend.class
     )
-    public Friend getFriend(@PathVariable String friendId){
+    public Friend getFriend(@ApiParam(value = "existing id for the friend you want to get", required = true)
+                                @PathVariable String friendId){
         return friendService.getFriendById(friendId);
     }
 
